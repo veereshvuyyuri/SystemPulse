@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Production
+build/
+
+# Database
+server/db/*.db
+server/db/*.sqlite
+
+# SSL Certificates (Should not be in Git)
+certs/server.crt
+certs/server.key
+scripts/certs/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db

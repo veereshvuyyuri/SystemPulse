@@ -1,0 +1,22 @@
+{
+    "name": "metrics-server",
+    "version": "1.0.0",
+    "description": "Backend for system metrics dashboard",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "node-windows": "^1.0.0-beta.8",
+        "selfsigned": "^5.5.0",
+        "socket.io": "^4.7.2",
+        "sqlite3": "^5.1.7",
+        "systeminformation": "^5.21.22"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    }
+}
