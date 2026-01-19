@@ -1,7 +1,7 @@
-# Real-Time Metrics Dashboard - Walkthrough
+# Real-Time Metrics Dashboard
 
 ## Overview
-We have built a **Real-Time System Metrics Dashboard** that monitors your computer's performance and provides useful daily widgets.
+Real-Time System Metrics Dashboard** that monitors your computer's performance and provides useful daily widgets.
 
 **Features:**
 - 📊 **System Metrics**: Live CPU Load, Memory Usage with **Historical Area Graphs**.
@@ -40,15 +40,3 @@ We have built a **Real-Time System Metrics Dashboard** that monitors your comput
 - **Dynamic Weather**: Localized weather reporting via `wttr.in`.
 - **Customizable Layout**: Full drag-and-drop and resize support with `react-grid-layout`.
 - **Layout Persistence**: Automatically saves your dashboard arrangement to local storage.
-
-## Visual Tour
-
-![Final Pulse Dashboard Dashboard](C:/Users/BCP/.gemini/antigravity/brain/32cd7705-e01f-4330-8433-9e2dbd5c22fa/final_dashboard_check_1768790579018.png)
-*Behold: The completed System Pulse Dashboard with custom layout, clock, and weather.*
-
-### verification Video
-![Dashboard Polish Verification](C:/Users/BCP/.gemini/antigravity/brain/32cd7705-e01f-4330-8433-9e2dbd5c22fa/final_polish_verification_verified_1768790302398.webp)
-*Watch the layout persistence and SSL verification in action.*
-
-![Secure Custom Domain](C:/Users/BCP/.gemini/antigravity/brain/32cd7705-e01f-4330-8433-9e2dbd5c22fa/dashboard_https_verification_1768789545650.png)
-*Success! Secure HTTPS connection on systempulse.local.*
