@@ -1,4 +1,4 @@
-# Real-Time Metrics Dashboard
+# Real-Time System Metrics Dashboard
 
 ## Overview
 Real-Time System Metrics Dashboard** that monitors your computer's performance and provides useful daily widgets.
