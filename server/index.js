@@ -97,5 +97,5 @@ app.get('/health', (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Metrics Server running on http://localhost:${PORT}`);
+    console.log(`Metrics Server running on https://systempulse.local:${PORT}`);
 });

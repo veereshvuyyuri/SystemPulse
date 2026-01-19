@@ -33,6 +33,7 @@ Real-Time System Metrics Dashboard** that monitors your computer's performance a
 ## How to Run
 1. Open your terminal in the **project root directory** (where `package.json` is located).
 2. Run: `npm start`
+   - *Alternative (if npm is blocked):* `node server/index.js` (for backend) and `npm run client` separately.
 3. Open in browser: **https://systempulse.local:5173**
 
 ### 6. Interactive Dashboard & Utilities
