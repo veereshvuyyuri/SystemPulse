@@ -41,11 +41,12 @@ const getSystemMetrics = async () => {
 
         // Fetch the slow ones in parallel
         // We still use si for these as os doesn't provide them easily
-        const [currentLoad, processes, networkStats, fsSize] = await Promise.all([
+        const [currentLoad, processes, networkStats, fsSize, graphics] = await Promise.all([
             si.currentLoad(),
             si.processes(),
             si.networkStats(),
-            si.fsSize()
+            si.fsSize(),
+            si.graphics()
         ]);
 
         // Format Processes (Top 50)
@@ -68,6 +69,14 @@ const getSystemMetrics = async () => {
         // Main Disk
         const fsSizeArray = Array.isArray(fsSize) ? fsSize : [];
         const mainDisk = fsSizeArray.filter(d => d.size > 0).sort((a, b) => b.size - a.size)[0] || {};
+
+        // GPU mapping
+        const gpuData = (graphics?.controllers || []).map(g => ({
+            vendor: g.vendor,
+            model: g.model,
+            vram: g.vram,
+            vramDynamic: g.vramDynamic
+        }));
 
         const result = {
             cpu: {
@@ -94,6 +103,7 @@ const getSystemMetrics = async () => {
                 used: mainDisk.used,
                 use: mainDisk.use
             },
+            gpu: gpuData,
             processes: topProcesses,
             timestamp: new Date().toISOString(),
             elapsed: Date.now() - startTime

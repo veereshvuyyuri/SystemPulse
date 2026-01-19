@@ -11,6 +11,8 @@ import ProcessList from './components/ProcessList';
 import NetworkWidget from './components/NetworkWidget';
 import DiskWidget from './components/DiskWidget';
 import ReportingModal from './components/ReportingModal';
+import GoalsWidget from './components/GoalsWidget';
+import GpuWidget from './components/GpuWidget';
 
 // Hook to get window width
 function useWindowWidth() {
@@ -31,7 +33,9 @@ const defaultLayouts = {
     { i: 'network', x: 0, y: 4, w: 3, h: 4 },
     { i: 'disk', x: 3, y: 4, w: 3, h: 4 },
     { i: 'clock', x: 0, y: 8, w: 3, h: 4 },
-    { i: 'weather', x: 3, y: 8, w: 3, h: 4 }
+    { i: 'weather', x: 3, y: 8, w: 3, h: 4 },
+    { i: 'goals', x: 0, y: 12, w: 6, h: 8 },
+    { i: 'gpu', x: 6, y: 12, w: 6, h: 8 }
   ],
   md: [
     { i: 'cpu', x: 0, y: 0, w: 5, h: 4 },
@@ -40,7 +44,9 @@ const defaultLayouts = {
     { i: 'network', x: 0, y: 14, w: 5, h: 4 },
     { i: 'disk', x: 5, y: 14, w: 5, h: 4 },
     { i: 'clock', x: 0, y: 18, w: 5, h: 4 },
-    { i: 'weather', x: 5, y: 18, w: 5, h: 4 }
+    { i: 'weather', x: 5, y: 18, w: 5, h: 4 },
+    { i: 'goals', x: 0, y: 22, w: 10, h: 8 },
+    { i: 'gpu', x: 0, y: 30, w: 10, h: 8 }
   ],
   sm: [
     { i: 'cpu', x: 0, y: 0, w: 3, h: 4 },
@@ -49,7 +55,9 @@ const defaultLayouts = {
     { i: 'network', x: 0, y: 14, w: 3, h: 4 },
     { i: 'disk', x: 3, y: 14, w: 3, h: 4 },
     { i: 'clock', x: 0, y: 18, w: 3, h: 4 },
-    { i: 'weather', x: 3, y: 18, w: 3, h: 4 }
+    { i: 'weather', x: 3, y: 18, w: 3, h: 4 },
+    { i: 'goals', x: 0, y: 22, w: 6, h: 8 },
+    { i: 'gpu', x: 0, y: 30, w: 6, h: 6 }
   ],
   xs: [
     { i: 'cpu', x: 0, y: 0, w: 4, h: 4 },
@@ -58,7 +66,8 @@ const defaultLayouts = {
     { i: 'network', x: 0, y: 18, w: 4, h: 4 },
     { i: 'disk', x: 0, y: 22, w: 4, h: 4 },
     { i: 'clock', x: 0, y: 26, w: 4, h: 4 },
-    { i: 'weather', x: 0, y: 30, w: 4, h: 4 }
+    { i: 'weather', x: 0, y: 30, w: 4, h: 4 },
+    { i: 'goals', x: 0, y: 34, w: 4, h: 8 }
   ],
   xxs: [
     { i: 'cpu', x: 0, y: 0, w: 2, h: 4 },
@@ -67,7 +76,8 @@ const defaultLayouts = {
     { i: 'network', x: 0, y: 18, w: 2, h: 4 },
     { i: 'disk', x: 0, y: 22, w: 2, h: 4 },
     { i: 'clock', x: 0, y: 26, w: 2, h: 4 },
-    { i: 'weather', x: 0, y: 30, w: 2, h: 4 }
+    { i: 'weather', x: 0, y: 30, w: 2, h: 4 },
+    { i: 'goals', x: 0, y: 34, w: 2, h: 8 }
   ]
 };
 
@@ -208,6 +218,20 @@ function App() {
         <div key="weather" className="glass-panel" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div className="drag-handle" style={{ height: '20px', cursor: 'grab', background: 'rgba(255,255,255,0.05)', marginBottom: '0.5rem', borderRadius: '4px' }} title="Drag to move"></div>
           <WeatherWidget />
+        </div>
+
+        <div key="goals" className="glass-panel" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+          <div className="drag-handle" style={{ height: '20px', cursor: 'grab', background: 'rgba(255,255,255,0.05)', marginBottom: '0.5rem', borderRadius: '4px' }} title="Drag to move"></div>
+          <div style={{ padding: '0 1rem 1rem', flex: 1, overflow: 'hidden' }}>
+            <GoalsWidget />
+          </div>
+        </div>
+
+        <div key="gpu" className="glass-panel" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+          <div className="drag-handle" style={{ height: '20px', cursor: 'grab', background: 'rgba(255,255,255,0.05)', marginBottom: '0.5rem', borderRadius: '4px' }} title="Drag to move"></div>
+          <div style={{ padding: '0 1rem 1rem', flex: 1 }}>
+            <GpuWidget gpus={metrics?.gpu} />
+          </div>
         </div>
 
       </Responsive>
